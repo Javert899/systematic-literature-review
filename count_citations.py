@@ -3,7 +3,7 @@ import re
 import json
 import traceback
 
-data = os.listdir("data")
+data = os.listdir("data_filtered")
 dictio_cit_years = {}
 for file in data:
     dictio_cit_years[file] = []
@@ -28,3 +28,10 @@ for file in data:
         traceback.print_exc()
 
 json.dump(dictio_cit_years, open("no_citations_file.dump", "w"))
+
+from collections import Counter
+
+c = Counter()
+for k in dictio_cit_years:
+    c += Counter(dictio_cit_years[k])
+print(c)
