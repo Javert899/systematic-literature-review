@@ -5,8 +5,9 @@ import traceback
 import json
 import requests
 import time
+import sys
 
-scholar_entries = json.load(open("artifact_centric_models.json", "rb"))
+scholar_entries = json.load(open(sys.argv[1], "rb"))
 try:
     os.mkdir("data")
 except:
@@ -21,4 +22,4 @@ for index, entry in enumerate(scholar_entries):
         F.close()
         print(content)
         print("done", entry)
-    time.sleep(2)
+        time.sleep(2)

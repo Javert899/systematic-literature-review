@@ -21,4 +21,4 @@ for index, entry in enumerate(scholar_entries):
         F.close()
         print(content)
         print("done", entry)
-    time.sleep(2)
+        time.sleep(2)

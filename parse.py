@@ -1,7 +1,7 @@
 import json
+import sys
 
-
-F = open("artifact_centric_models.bib", "r")
+F = open(sys.argv[1], "r")
 content = F.read().split("\n\n")
 json_dictio = {}
 for row in content:
@@ -11,4 +11,4 @@ for row in content:
         entry[r.split("=")[0].strip()] = r.split("{")[-1].split("}")[0]
     if "doi" in entry and "title" in entry:
         json_dictio[entry["doi"]] = entry
-json.dump(json_dictio, open("artifact_centric_models.json", "w"), indent=2)
+json.dump(json_dictio, open(sys.argv[2], "w"), indent=2)
