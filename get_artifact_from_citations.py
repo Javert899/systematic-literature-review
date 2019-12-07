@@ -17,7 +17,7 @@ for file in data:
                 #print(item.keys())
                 if "DOI" in item and "unstructured" in item:
                     text = item["unstructured"].lower()
-                    if "artifact" in text and ("centric" in text or "business" in text):
+                    if ("artifact" in text or "object" in text) and ("centric" in text or "business" in text):
                         doi.add(item["DOI"])
     except:
         #traceback.print_exc()
